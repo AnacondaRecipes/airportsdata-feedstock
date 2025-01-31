@@ -16,11 +16,11 @@ build:
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python
     - setuptools
     - pip
   run:
-    - python >={{ python_min }}
+    - python
 
 test:
   imports:
@@ -28,7 +28,7 @@ test:
   commands:
     - pip check
   requires:
-    - python {{ python_min }}
+    - python
     - pip
 
 about:
@@ -38,5 +38,10 @@ about:
   license_file: LICENSE
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/49522
+    reason: Dependency for vllm
+  recipe-maintainers:
+    - ianaobi
   recipe-maintainers:
     - maresb
