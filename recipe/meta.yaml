@@ -1,5 +1,5 @@
 {% set name = "airportsdata" %}
-{% set version = "20250909" %}
+{% set version = "20260803" %}
 
 package:
   name: {{ name|lower }}
@@ -7,19 +7,18 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/airportsdata-{{ version }}.tar.gz
-  sha256: f39974fe1101817ced4ccf7c6ed336408469e5e778395d0a3e7a5112ec298f90
+  sha256: 418e42c21b24820429ca23149a825fee24784caed6a2a1ecee7e049f76cbf5b0
 
 build:
-  skip: true # [ py<310 ]
+  skip: true  # [ py<311 ]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
     - python
     - setuptools
     - pip
-    - wheel
   run:
     - python
 
@@ -36,7 +35,7 @@ about:
   home: https://github.com/mborsetti/airportsdata
   summary: Extensive database of location and timezone data for nearly every airport and landing strip in the world.
   description: |
-    Extensive database of location and timezone data for nearly every operational airport and 
+    Extensive database of location and timezone data for nearly every operational airport and
     landing strip in the world, with 28,270 entries.
 
   license: MIT
